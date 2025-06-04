@@ -10,11 +10,11 @@ Sphere::Sphere(glm::vec3 const& center, double radius = 1):
     radius_{radius}{}
 
 //hier überprüfen warum ich kein override verwenden sollte.
-double Sphere::area() const{
-    return 4*M_PI*(radius_^2);
+double Sphere::area()const{
+    return 4*M_PI*pow(radius_,2);
 }
 
 //hier überprüfen warum ich kein override verwenden sollte.  
 double Sphere::volume() const{
-    return 1;
+    return (4/3)*M_PI*pow(radius_,3);
 }
