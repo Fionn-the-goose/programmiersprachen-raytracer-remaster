@@ -1,5 +1,5 @@
-#ifndef SPHERE_HPP
-#define SPHERE_HPP
+#ifndef BUW_SPHERE_HPP
+#define BUW_SPHERE_HPP
 
 #include "shape.hpp"
 #include <glm/vec3.hpp>

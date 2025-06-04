@@ -1,5 +1,5 @@
-#ifndef BOX_HPP
-#define BOX_HPP
+#ifndef BUW_BOX_HPP
+#define BUW_BOX_HPP
 
 #include "shape.hpp"
 #include <glm/vec3.hpp>
