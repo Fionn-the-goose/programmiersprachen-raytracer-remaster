@@ -11,7 +11,7 @@ class Shape{
         virtual std::ostream& print(std::ostream& os) const;
         Shape();
         Shape(std::string const& name, Color const& color);
-    private:
+    protected:
         std::string name_;
         Color color_;
 };

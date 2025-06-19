@@ -1,9 +1,15 @@
 #ifndef BUW_SPHERE_HPP
 #define BUW_SPHERE_HPP
+#define GLM_ENABLE_EXPERIMENTAL
 
 #include "shape.hpp"
+#include "ray.hpp"
+#include "hitpoint.hpp"
+
 #include <iostream>
 #include <glm/vec3.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtx/intersect.hpp>
 
 class Sphere : public Shape{
     private:
@@ -16,6 +22,7 @@ class Sphere : public Shape{
         double area() const override;
         double volume() const override;
         std::ostream& print(std::ostream& os) const override;
+        HitPoint intersect(Ray const& ray) const;
 };
 
 #endif
