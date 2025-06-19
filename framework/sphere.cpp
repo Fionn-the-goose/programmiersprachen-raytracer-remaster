@@ -11,6 +11,11 @@ Sphere::Sphere(glm::vec3 const& center, double radius = 1):
     center_{center},
     radius_{radius}{}
 
+Sphere::Sphere( glm::vec3 const& center, double radius, Color const& color, std::string const& name):
+    Shape::Shape{name, color},
+    center_{center},
+    radius_{radius}{}
+
 Sphere::Sphere( glm::vec3 const& center, double radius, std::string const& name, Color const& color):
     Shape::Shape{name, color},
     center_{center},

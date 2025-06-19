@@ -120,5 +120,14 @@ int main(int argc, char *argv[]){
 	Box test_box{ {0.0, 0.0, 0.0}, {10.0, 10.0, 20.0}, "Printing Box", {.5, .5, .5} };
 	std::cout << test_sphere << std::endl;
 	std::cout << test_box << std::endl;
+
+  Color red{255, 0, 0};
+  glm::vec3 position{0.0f, 0.0f, 0.0f};
+  Sphere* s1 = new Sphere{position, 1.2, red, "sphere0"};
+  Shape* s2 = new Sphere{position, 1.2, red, "sphere1"};
+  s1->print(std::cout);
+  s2->print(std::cout);
+  delete s1;
+  delete s2;
   return Catch::Session().run(argc, argv);
 }

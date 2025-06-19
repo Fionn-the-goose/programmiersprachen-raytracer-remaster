@@ -8,6 +8,10 @@ Shape::Shape(std::string const& name, Color const& color):
     name_{name},
     color_{color}{}
 
+Shape::~Shape(){
+    std::cout << "Livetime of: " << name_ << ", has enden." << std::endl;
+}
+
 std::ostream& Shape::print(std::ostream& os) const{
     os << "name: " << name_ << std::endl;
     os << "color: " << color_;
