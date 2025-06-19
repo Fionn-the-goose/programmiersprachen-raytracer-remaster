@@ -12,8 +12,10 @@ class Sphere : public Shape{
     public:
         Sphere();
         Sphere(glm::vec3 const& center, double radius);
+        Sphere( glm::vec3 const& center, double radius, std::string const& name, Color const& color);
         double area() const override;
         double volume() const override;
+        std::ostream& print(std::ostream& os) const override;
 };
 
 #endif

@@ -1,6 +1,8 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
 #include <glm/vec3.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtx/intersect.hpp>
 
 #include "../framework/shape.hpp" 
 #include "../framework/sphere.hpp"
@@ -94,7 +96,29 @@ TEST_CASE("Box -> volume test", "[aufgabe 5.2]"){
   REQUIRE(b8.volume() == Approx(63000));
 }
 
-int main(int argc, char *argv[])
-{
+TEST_CASE("intersect_ray_sphere", "[intersect]"){
+  // Ray
+  glm::vec3 ray_origin{0.0f, 0.0f, 0.0f};
+  // ray direction has to be normalized !
+  // you can use:
+  // v = glm::normalize(some_vector)
+  glm::vec3 ray_direction{0.0f, 0.0f, 1.0f};
+  // Sphere
+  glm::vec3 sphere_center{0.0f ,0.0f, 5.0f};
+  float sphere_radius{1.0f};
+  float distance = 0.0f;
+  auto result = glm::intersectRaySphere(
+  ray_origin, ray_direction,
+  sphere_center,
+  sphere_radius * sphere_radius, // squared radius !!!
+  distance);
+  REQUIRE(distance == Approx(4.0f));
+}
+
+int main(int argc, char *argv[]){
+  Sphere test_sphere{{0.0, 0.0, 0.0}, 7.0, "Printing Sphere", {1.0, 1.0, 1.0}};
+	Box test_box{ {0.0, 0.0, 0.0}, {10.0, 10.0, 20.0}, "Printing Box", {.5, .5, .5} };
+	std::cout << test_sphere << std::endl;
+	std::cout << test_box << std::endl;
   return Catch::Session().run(argc, argv);
 }
