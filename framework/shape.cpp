@@ -2,13 +2,13 @@
 
 Shape::Shape():
     name_{"shape"},
-    color_{Color{1.0f,1.0f,1.0f}}{
+    mat_{}{
         //std::cout << "construkt: " << name_ << "." << std::endl;
     }
 
-Shape::Shape(std::string const& name, Color const& color):
+Shape::Shape(std::string const& name, Material const& mat):
     name_{name},
-    color_{color}{
+    mat_{mat}{
         //std::cout << "construkt: " << name_ << "." << std::endl;
     }
 
@@ -18,7 +18,7 @@ Shape::~Shape(){
 
 std::ostream& Shape::print(std::ostream& os) const{
     os << "name: " << name_ << std::endl;
-    os << "color: " << color_;
+    os << "color: " << mat_;
     return os;
 }
 
