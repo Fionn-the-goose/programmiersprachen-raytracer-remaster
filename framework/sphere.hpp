@@ -23,7 +23,7 @@ class Sphere : public Shape{
         double area() const override;
         double volume() const override;
         std::ostream& print(std::ostream& os) const override;
-        HitPoint intersect(Ray const& ray) const;
+        HitPoint intersect(Ray const& ray) override;
 };
 
 #endif

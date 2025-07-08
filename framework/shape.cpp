@@ -2,14 +2,18 @@
 
 Shape::Shape():
     name_{"shape"},
-    color_{Color{1.0f,1.0f,1.0f}}{}
+    color_{Color{1.0f,1.0f,1.0f}}{
+        //std::cout << "construkt: " << name_ << "." << std::endl;
+    }
 
 Shape::Shape(std::string const& name, Color const& color):
     name_{name},
-    color_{color}{}
+    color_{color}{
+        //std::cout << "construkt: " << name_ << "." << std::endl;
+    }
 
 Shape::~Shape(){
-    std::cout << "Livetime of: " << name_ << ", has enden." << std::endl;
+    //std::cout << "Livetime of: " << name_ << ", has enden." << std::endl;
 }
 
 std::ostream& Shape::print(std::ostream& os) const{

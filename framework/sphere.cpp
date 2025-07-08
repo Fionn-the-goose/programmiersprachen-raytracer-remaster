@@ -41,7 +41,7 @@ std::ostream& Sphere::print(std::ostream& os) const{
     return os;
 }
 
-HitPoint Sphere::intersect(Ray const& ray) const{
+HitPoint Sphere::intersect(Ray const& ray){
     float distance{5.0};
     bool has_hit{glm::intersectRaySphere(
         ray.origin,

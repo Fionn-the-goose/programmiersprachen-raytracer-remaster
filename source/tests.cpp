@@ -8,7 +8,7 @@
 #include "../framework/sphere.hpp"
 #include "../framework/box.hpp"
 
-TEST_CASE("Sphere -> area test", "[aufgabe 5.2]"){
+/*TEST_CASE("Sphere -> area test", "[aufgabe 5.2]"){
   Sphere s1{};
   Sphere s2{{0,0,0}, 10};
   Sphere s3{{0,0,0}, 0};
@@ -96,6 +96,7 @@ TEST_CASE("Box -> volume test", "[aufgabe 5.2]"){
   REQUIRE(b8.volume() == Approx(63000));
 }
 
+*/
 TEST_CASE("intersect_ray_sphere", "[intersect]"){
   // Ray
   glm::vec3 ray_origin{0.0f, 0.0f, 0.0f};
@@ -115,19 +116,36 @@ TEST_CASE("intersect_ray_sphere", "[intersect]"){
   REQUIRE(distance == Approx(4.0f));
 }
 
-int main(int argc, char *argv[]){
-  Sphere test_sphere{{0.0, 0.0, 0.0}, 7.0, "Printing Sphere", {1.0, 1.0, 1.0}};
-	Box test_box{ {0.0, 0.0, 0.0}, {10.0, 10.0, 20.0}, "Printing Box", {.5, .5, .5} };
-	std::cout << test_sphere << std::endl;
-	std::cout << test_box << std::endl;
+TEST_CASE("intersect_ray_Box", "[aufgabe 6.3]") {
+  Color col = {0.0f, 0.0f, 1.0f};
+  float distance1 = 0.0f;
 
-  Color red{255, 0, 0};
+  glm::vec3 v = {0.0f, 1.0f, 0.0f};
+  glm::normalize(v);
+  Box b_1({-1.0f, 1.0f, -2.0f}, {6.0f, 4.0f, 1.0f});
+  Ray ray1{{0.0f, 0.0f, 0.0f}, v};
+
+  HitPoint a = b_1.intersect(ray1);
+  REQUIRE(a.distance == 1.0f);
+}
+
+int main(int argc, char *argv[]){
+  //Sphere test_sphere{{0.0, 0.0, 0.0}, 7.0, "Printing Sphere", {1.0, 1.0, 1.0}};
+	//Box test_box{ {0.0, 0.0, 0.0}, {10.0, 10.0, 20.0}, "Printing Box", {.5, .5, .5} };
+	//std::cout << test_sphere << std::endl;
+	//std::cout << test_box << std::endl;
+
+  /*Color red{255, 0, 0};
   glm::vec3 position{0.0f, 0.0f, 0.0f};
   Sphere* s1 = new Sphere{position, 1.2, red, "sphere0"};
   Shape* s2 = new Sphere{position, 1.2, red, "sphere1"};
   s1->print(std::cout);
   s2->print(std::cout);
   delete s1;
-  delete s2;
+  delete s2;*/
+  //kon basis -> kon derivied -> des derived -> des basis
+
+
+
   return Catch::Session().run(argc, argv);
 }

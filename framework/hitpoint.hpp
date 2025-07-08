@@ -5,15 +5,16 @@
 #include <glm/vec3.hpp>
 
 #include "color.hpp"
+#include <cmath>
 
 struct HitPoint
 {
-    bool is_intersecting{};
-    double distance{};
-    std::string hit_name{};
-    Color hit_color{};
-    glm::vec3 hit_point{};
-    glm::vec3 ray_direction{};
+    bool is_intersecting{false};
+    double distance{INFINITY};
+    std::string hit_name{" "};
+    Color hit_color{0.0, 0.0, 0.0};
+    glm::vec3 hit_point{0.0, 0.0, 0.0};
+    glm::vec3 ray_direction{1.0f, 1.0f, 1.0f};
 };
 
 
