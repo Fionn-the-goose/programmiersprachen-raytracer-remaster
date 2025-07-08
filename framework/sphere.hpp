@@ -18,8 +18,8 @@ class Sphere : public Shape{
     public:
         Sphere();
         Sphere(glm::vec3 const& center, double radius);
-        Sphere(glm::vec3 const& center, double radius, Color const& color, std::string const& name);
-        Sphere(glm::vec3 const& center, double radius, std::string const& name, Color const& color);
+        Sphere(glm::vec3 const& center, double radius, Material const& mat, std::string const& name);
+        Sphere(glm::vec3 const& center, double radius, std::string const& name, Material const& mat);
         double area() const override;
         double volume() const override;
         std::ostream& print(std::ostream& os) const override;

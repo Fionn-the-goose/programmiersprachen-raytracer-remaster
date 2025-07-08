@@ -11,13 +11,13 @@ Sphere::Sphere(glm::vec3 const& center, double radius = 1):
     center_{center},
     radius_{radius}{}
 
-Sphere::Sphere( glm::vec3 const& center, double radius, Color const& color, std::string const& name):
-    Shape::Shape{name, color},
+Sphere::Sphere( glm::vec3 const& center, double radius, Material const& mat, std::string const& name):
+    Shape::Shape{name, mat},
     center_{center},
     radius_{radius}{}
 
-Sphere::Sphere( glm::vec3 const& center, double radius, std::string const& name, Color const& color):
-    Shape::Shape{name, color},
+Sphere::Sphere( glm::vec3 const& center, double radius, std::string const& name, Material const& mat):
+    Shape::Shape{name, mat},
     center_{center},
     radius_{radius}{}
 
@@ -53,7 +53,7 @@ HitPoint Sphere::intersect(Ray const& ray){
         has_hit,
         distance,
         name_,
-        color_,
+        mat_.ka_,
         ray.origin + (distance * glm::normalize(ray.direction)),
         glm::normalize(ray.direction)};
     return hitpoint;
