@@ -18,6 +18,7 @@ install(TARGETS raytracer DESTINATION .)
 # Build tests
 add_executable(tests
   tests.cpp
+  ../framework/scene.cpp
   )
 
 target_link_libraries(tests

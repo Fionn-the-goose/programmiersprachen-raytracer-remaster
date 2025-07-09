@@ -7,6 +7,8 @@
 #include "../framework/shape.hpp" 
 #include "../framework/sphere.hpp"
 #include "../framework/box.hpp"
+#include "../framework/scene.hpp"
+#include "../framework/material.hpp"
 
 /*TEST_CASE("Sphere -> area test", "[aufgabe 5.2]"){
   Sphere s1{};
@@ -129,6 +131,14 @@ TEST_CASE("intersect_ray_Box", "[aufgabe 6.3]") {
   REQUIRE(a.distance == 1.0f);
 }
 
+TEST_CASE("sdf reading", "[aufgabe 6.5]") {
+  Scene test_scene = read_sdf("../../source/test.sdf");
+  REQUIRE(test_scene.mat_map.count("red") == 1);
+  REQUIRE(test_scene.mat_map.count("green") == 1);
+  REQUIRE(test_scene.mat_map.count("blue") == 1);
+}
+
+
 int main(int argc, char *argv[]){
   //Sphere test_sphere{{0.0, 0.0, 0.0}, 7.0, "Printing Sphere", {1.0, 1.0, 1.0}};
 	//Box test_box{ {0.0, 0.0, 0.0}, {10.0, 10.0, 20.0}, "Printing Box", {.5, .5, .5} };
@@ -144,8 +154,6 @@ int main(int argc, char *argv[]){
   delete s1;
   delete s2;*/
   //kon basis -> kon derivied -> des derived -> des basis
-
-
 
   return Catch::Session().run(argc, argv);
 }
